@@ -1,13 +1,13 @@
+import { Children } from 'react'
 import './Button.scss'
 
-const Button = ({ btnText, ...props }) => {
+const Button = ({ children, ...props }) => {
     return (
         <button
             className='mainBtn'
-            type='button'
             name='button'
             {...props}
-        >{btnText}</button>
+        >{children}</button>
     )
 }
 

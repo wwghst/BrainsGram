@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <Button btnText='Subscribe'/>
+    <Button>GGGG</Button>
   );
 }
 
