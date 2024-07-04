@@ -1,10 +1,10 @@
-import Button from '../button/Button';
+import LoginForm from '../loginForm/LoginForm';
 import './App.css';
 
 
 function App() {
   return (
-    <Button>GGGG</Button>
+    <LoginForm/>
   );
 }
 
