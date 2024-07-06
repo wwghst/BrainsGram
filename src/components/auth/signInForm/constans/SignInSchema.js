@@ -3,26 +3,20 @@ import * as yup from 'yup';
 export const SignInSchema = yup.object().shape({
   name: yup
     .string()
-    .required('имя обязательно к заполнению')
-    .min(4, 'имя слишком короткое')
-    .max(20, 'имя слишком длинное'),
+    .required('Name is required')
+    .min(4, 'The name is too short')
+    .max(20, 'The name is too long'),
   email: yup
     .string()
-    .required('почта обязательна к заполнению')
-    .min(6, 'почта слишком короткая')
-    .max(40, 'почта слишком большая')
-    .matches(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(\\".+\\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      'неверный формат почты',
-    ),
+    .required('Email is required')
+    .email('Wrong email'),
 
   password: yup
     .string()
-    .required('пароль обязателен к заполнению')
-    .min(6, 'пароль слишком короткий')
-    .max(12, 'пароль слишком большой'),
+    .required('Password is required')
+    .min(8, 'The name is too short'),
   'confirm password': yup
     .string()
-    .required('пароль обязателен к заполнению')
-    .oneOf([yup.ref('password'), null], 'Пароли не совпадают'),
+    .required('Password is required')
+    .oneOf([yup.ref('password'), null], 'Password mismatch'),
 });
