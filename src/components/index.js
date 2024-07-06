@@ -1,13 +1,13 @@
-export * from './button/Button'
-export * from './errorMessage/ErrorMessage'
-export * from './loading/Loading'
-export * from './loginForm/LoginForm'
-export * from './posts/Posts'
-export * from './profileImg/ProfileImg'
-export * from './profileInfo/ProfileInfo'
-export * from './sidebar/Sidebar'
-export * from './singlePost/SinglePost'
-export * from './skeleton/Skeleton'
-export * from './subModal/SubModal'
-export * from './users/Users'
-export * from './yourselfForm/YourselfForm'
+export { default as ErrorMessage } from './errorMessage/ErrorMessage';
+export { default as Loading } from './loading/Loading';
+export { default as Posts } from './posts/Posts';
+export { default as ProfileImg } from './profileImg/ProfileImg';
+export { default as ProfileInfo } from './profileInfo/ProfileInfo';
+export { default as Sidebar } from './sidebar/Sidebar';
+export { default as SinglePost } from './singlePost/SinglePost';
+export { default as Skeleton } from './skeleton/Skeleton';
+export { default as SubModal } from './subModal/SubModal';
+export { default as Users } from './users/Users';
+export { default as YourselfForm } from './yourselfForm/YourselfForm';
+
+export * from './auth';
