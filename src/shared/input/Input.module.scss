@@ -1,0 +1,16 @@
+.input {
+  background: #f0f0f0;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  padding: 4px 12px;
+}
+
+.default {
+  height: 42px;
+  width: 100%;
+  padding-inline: 20px;
+
+  &:focus-visible {
+    outline: 2px solid #7545ff;
+  }
+}
