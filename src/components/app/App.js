@@ -1,10 +1,10 @@
-import ErrorMessage from '../errorMessage/ErrorMessage';
+import Sidebar from '../sidebar/Sidebar';
 import './App.css';
 
 
 function App() {
   return (
-    <ErrorMessage/>
+    <Sidebar/>
   );
 }
 
