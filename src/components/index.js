@@ -1,7 +1,6 @@
 export { default as ErrorMessage } from './errorMessage/ErrorMessage';
 export { default as Loading } from './loading/Loading';
 export { default as Posts } from './posts/Posts';
-export { default as ProfileImg } from './profileImg/ProfileImg';
 export { default as ProfileInfo } from './profileInfo/ProfileInfo';
 export { default as Sidebar } from './sidebar/Sidebar';
 export { default as SinglePost } from './singlePost/SinglePost';
