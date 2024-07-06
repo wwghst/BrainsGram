@@ -1,10 +1,10 @@
-import Loading from '../loading/Loading';
+import ErrorMessage from '../errorMessage/ErrorMessage';
 import './App.css';
 
 
 function App() {
   return (
-    <Loading/>
+    <ErrorMessage/>
   );
 }
 
