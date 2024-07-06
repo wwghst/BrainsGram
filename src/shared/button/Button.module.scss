@@ -23,3 +23,21 @@
     background-color: #7545ff;
   }
 }
+
+.subBtn{
+  background: #7545ff;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  width: 100px;
+  height: 22px;
+  font-size: 14px;
+  color: white;
+
+  &:hover {
+    background-color: #5f3dc4;
+  }
+
+  &:active {
+    background-color: #7545ff;
+  }
+}

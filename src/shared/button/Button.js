@@ -2,7 +2,7 @@ import styles from './Button.module.scss';
 
 const Button = ({ children, className, variant = 'default', ...props }) => {
   return (
-    <button className={`${styles.btn} ${className ? className : ''} ${styles[variant]}`} {...props}>
+    <button className={`${className ? className : ''} ${styles.btn} ${styles[variant]}  `} {...props}>
       {children}
     </button>
   );

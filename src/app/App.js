@@ -1,14 +1,11 @@
 
-import { Loading, LoginForm, SignInForm } from '../components';
+import SubModal from '../components/subModal/SubModal';
 import './App.css';
 
 function App() {
   return (
     <>
-      {/* <Loading /> */}
-      <SignInForm />
-      {/* <LoginForm /> */}
-     
+  <SubModal/>
     </>
   );
 }
