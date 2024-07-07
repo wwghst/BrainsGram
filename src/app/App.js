@@ -1,11 +1,11 @@
+import UsersRec from '../components/usersRec/UsersRec'
 
-import SubModal from '../components/subModal/SubModal';
 import './App.css';
 
 function App() {
   return (
     <>
-  <SubModal/>
+  <UsersRec/>
     </>
   );
 }
