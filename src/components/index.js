@@ -8,5 +8,6 @@ export { default as Skeleton } from './skeleton/Skeleton';
 export { default as SubModal } from './subModal/SubModal';
 export { default as UsersRec } from './usersRec/UsersRec'
 export { default as YourselfForm } from './yourselfForm/YourselfForm';
+export { default as Footer } from './footer/Footer'
 
 export * from './auth';

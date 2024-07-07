@@ -1,0 +1,27 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    gap: 20px;
+    padding: 10px;
+
+    &__links{
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+
+    }
+
+    &__link{
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    &__tittle{
+        font-family: 'Open Sans', sans-serif;
+    }
+}
