@@ -1,0 +1,35 @@
+.posts{
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    margin: 0 auto;
+
+    &__tittle{
+        font-size: 20px;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    &__line{
+        width: 100%;
+        height: 2px;
+        background-color: #7545FF;
+    }
+
+    &__posts{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    &__post{
+        width: 230px;
+        height: 230px;
+        object-fit: cover;
+        cursor: pointer;
+    }
+}
