@@ -1,12 +1,14 @@
-import Footer from '../components/footer/Footer'
+import Sidebar from '../components/sidebar/Sidebar'
+import ProfileInfo from '../components/profileInfo/ProfileInfo';
 
 import './App.css';
 
 function App() {
   return (
-    <>
-  <Footer/>
-    </>
+    <div className="app">
+      <Sidebar />
+      <ProfileInfo />
+    </div>
   );
 }
 
