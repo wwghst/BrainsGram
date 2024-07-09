@@ -4,6 +4,7 @@ import ProfileInfo from '../components/profileInfo/ProfileInfo';
 
 
 import './App.scss';
+import SinglePost from '../components/singlePost/SinglePost';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div className='app__content'>
         <ProfileInfo />
         <Posts />
+        <SinglePost />
       </div>
     </div>
   );
