@@ -5,6 +5,7 @@ import PostModal from '../components/modals/postModal/PostModal';
 
 
 import './App.scss';
+import SinglePost from '../components/singlePost/SinglePost';
 
 function App() {
   return (
