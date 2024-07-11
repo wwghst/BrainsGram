@@ -1,11 +1,11 @@
 import Sidebar from '../components/sidebar/Sidebar'
 import ProfilePosts from '../components/posts/ProfilePosts/ProfilePosts';
 import ProfileInfo from '../components/profileInfo/ProfileInfo';
-import PostModal from '../components/modals/postModal/PostModal';
+import YourselfModal from '../components/modals/yourselfModal/YourselfModal';
 
 
 import './App.scss';
-import SinglePost from '../components/singlePost/SinglePost';
+
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <ProfileInfo />
         <ProfilePosts />
       </div>
-      <PostModal/>
+      <YourselfModal/>
     </div>
   );
 }
