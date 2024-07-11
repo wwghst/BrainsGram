@@ -1,6 +1,7 @@
 import Sidebar from '../components/sidebar/Sidebar'
-import Posts from '../components/posts/Posts';
+import ProfilePosts from '../components/posts/ProfilePosts/ProfilePosts';
 import ProfileInfo from '../components/profileInfo/ProfileInfo';
+import PostModal from '../components/modals/postModal/PostModal';
 
 
 import './App.scss';
@@ -11,8 +12,9 @@ function App() {
       <Sidebar />
       <div className='app__content'>
         <ProfileInfo />
-        <Posts />
+        <ProfilePosts />
       </div>
+      <PostModal/>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import './SubModal.scss'
 import SearchImg from '../../assets/svg/Search.svg'
 import ProfileImg from '../../assets/img/ProfileImg.jpg'
-import Input from '../../shared/input/Input'
-import { Button } from '../../shared'
+import Input from '../../../shared/input/Input'
+import { Button } from '../../../shared'
 
 const SubModal = () => {
     return (

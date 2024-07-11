@@ -1,12 +1,12 @@
-import './Posts.scss'
-import Post1 from '../../assets/img/post1.jpeg'
-import Post2 from '../../assets/img/post2.jpg'
-import Post3 from '../../assets/img/post3.jpeg'
-import Post4 from '../../assets/img/post4.avif'
-import Button from '../../shared/button/Button'
+import './ProfilePosts.scss'
+import Post1 from '../../../assets/img/post1.jpeg'
+import Post2 from '../../../assets/img/post2.jpg'
+import Post3 from '../../../assets/img/post3.jpeg'
+import Post4 from '../../../assets/img/post4.avif'
+import Button from '../../../shared/button/Button'
 
 
-const Posts = () => {
+const ProfilePosts = () => {
     return (
         <div className="posts">
             <div className="posts__header">
@@ -28,4 +28,4 @@ const Posts = () => {
     )
 }
 
-export default Posts
+export default ProfilePosts
