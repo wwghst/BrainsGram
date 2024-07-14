@@ -1,7 +1,8 @@
 import Sidebar from '../components/sidebar/Sidebar'
-import ProfilePosts from '../components/posts/ProfilePosts/ProfilePosts';
-import ProfileInfo from '../components/profileInfo/ProfileInfo';
-import YourselfModal from '../components/modals/yourselfModal/YourselfModal';
+import Footer from '../components/footer/Footer';
+import HomePage from '../pages/HomePage';
+import ProfilePage from '../pages/ProfilePage';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
 import './App.scss';
@@ -9,14 +10,19 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="app">
-      <Sidebar />
-      <div className='app__content'>
-        <ProfileInfo />
-        <ProfilePosts />
+    <Router>
+      <div className="app">
+        <Sidebar />
+        <div className="app__content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/userName" element={<ProfilePage />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <YourselfModal/>
-    </div>
+    </Router>
+
   );
 }
 

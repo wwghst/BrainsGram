@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button } from '../../shared';
-import ProfileImg from '../../assets/img/ProfileImg.jpg';
-import PostImg from '../../assets/img/post1.jpeg';
-import LikeSvg from '../../assets/svg/Like.svg';
-import DislikeSvg from '../../assets/svg/Dislike.svg';
+import { Button } from '../../../shared';
+import ProfileImg from '../../../assets/img/ProfileImg.jpg'
+import PostImg from '../../../assets/img/post2.jpg'
+import LikeSvg from '../../../assets/svg/Like.svg';
+import DislikeSvg from '../../../assets/svg/Dislike.svg';
 import './SinglePost.scss';
 
 const SinglePost = () => {
@@ -14,6 +14,7 @@ const SinglePost = () => {
           <img className="singlePost__avatarka" src={ProfileImg} alt="profile avatarka" />
           <div className="singlePost__name-block">
             <h4>Name</h4>
+            <span>•</span>
             <span>1h</span>
           </div>
           <p>country</p>

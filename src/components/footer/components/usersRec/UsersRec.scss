@@ -6,7 +6,7 @@
     padding: 10px;
 
     &__tittle{
-        font-size: 20px;
+        font-size: 15px;
         font-family: 'Open Sans', sans-serif;
         margin-bottom: 20px;
     }
@@ -28,19 +28,19 @@
     }
 
     &__name{
-        font-size: 25px;
+        font-size: 20px;
         height: 25px;
         font-family: 'Open Sans', sans-serif;
     }
 
     &__text{
-        font-size: 15px;
+        font-size: 14px;
         font-family: 'Open Sans', sans-serif;
     }
 
     &__img{
-        width: 70px;
-        height: 70px;
+        width: 65px;
+        height: 65px;
         border-radius: 50%;
         object-fit: cover;
         border: 1px solid #7545FF;

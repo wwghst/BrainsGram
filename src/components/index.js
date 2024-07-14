@@ -6,7 +6,6 @@ export { default as Sidebar } from './sidebar/Sidebar';
 export { default as SinglePost } from './posts/singlePost/SinglePost';
 export { default as Skeleton } from './skeleton/Skeleton';
 export { default as SubModal } from './subModal/SubModal';
-export { default as UsersRec } from './usersRec/UsersRec'
 export { default as YourselfForm } from './yourselfForm/YourselfForm';
 export { default as Footer } from './footer/Footer'
 export { default as PostModal } from './modals/postModal/PostModal'

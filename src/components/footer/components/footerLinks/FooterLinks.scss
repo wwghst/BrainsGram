@@ -1,0 +1,32 @@
+.footerLinks{
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    gap: 20px;
+    padding: 10px;
+
+    &__links{
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+
+    }
+
+    &__link{
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-family: 'Open Sans', sans-serif;
+        font-size: 13px;
+
+        &:hover{
+            color: rgb(57, 57, 57);
+        }
+    }
+
+    &__tittle{
+        font-family: 'Open Sans', sans-serif;
+    }
+}

@@ -1,7 +1,7 @@
 import './UsersRec.scss'
-import ProfileImg from '../../assets/img/ProfileImg.jpg'
-import Subscribed from '../../assets/svg/Check.svg'
-import Button from '../../shared/button/Button'
+import ProfileImg from '../../../../assets/img/ProfileImg.jpg'
+import Subscribed from '../../../../assets/svg/Check.svg'
+import Button from '../../../../shared/button/Button'
 const UsersRec = () => {
     return (
         <div className="users">
