@@ -1,15 +1,7 @@
-.wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-}
-
 .signForm {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   max-width: 560px;
   width: 100%;
   align-items: center;
@@ -20,7 +12,7 @@
     align-items: center;
     gap: 20px;
     margin-bottom: 30px;
-    width: 100%;
+    width: 250px;
   }
 
   &__tittles {
@@ -61,6 +53,12 @@
       color: #7545ff;
     }
   }
+
+  &__stick{
+    color: #000000;
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+}
 
   &__link--active {
     color: #7545ff;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { NavLink } from 'react-router-dom';
 import './SignInForm.scss';
 import { useFormik } from 'formik';
 import { SignInSchema } from './constans/SignInSchema';
@@ -41,13 +41,17 @@ const SignInForm = () => {
           <span className="signForm__tittle--font">Brainsgram</span>
         </div>
         <div className="signForm__links">
-          <a href="#" className="signForm__link signForm__link--active">
+        <NavLink 
+          to='/' 
+          className="signForm__link">
             Login
-          </a>
+          </NavLink>
           <span className="signForm__stick">|</span>
-          <a href="#" className="signForm__link">
+          <NavLink
+            to='/registration' 
+            className="signForm__link signForm__link--active">
             Registration
-          </a>
+          </NavLink>
         </div>
         <div className={'form_block'}>
           <div className="signForm__inputs">

@@ -10,7 +10,7 @@ const Sidebar = () => {
             <div className='sidebar__links'>
                 <NavLink
                     style={({ isActive }) => ({ borderBottom: isActive ? '2px solid #757575' : 'none' })}
-                    to='/'
+                    to='/home'
                     className='sidebar__link'><img className='sidebar__homeImg' src={HomeImg}></img>Home</NavLink>
                 <NavLink
                     style={({ isActive }) => ({ borderBottom: isActive ? '2px solid #757575' : 'none' })}

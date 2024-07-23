@@ -1,6 +1,6 @@
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
-
+import { NavLink } from 'react-router-dom';
 import { Button } from '../../../shared';
 import './LoginForm.scss';
 
@@ -50,13 +50,17 @@ const LoginForm = () => {
           <span className="logForm__tittle--font">Brainsgram</span>
         </div>
         <div className="logForm__links">
-          <a href="#" className="logForm__link logForm__link--active">
+          <NavLink 
+          to='/' 
+          className="logForm__link logForm__link--active">
             Login
-          </a>
+          </NavLink>
           <span className="logForm__stick">|</span>
-          <a href="#" className="logForm__link">
+          <NavLink
+            to='/registration' 
+            className="logForm__link">
             Registration
-          </a>
+          </NavLink>
         </div>
         <div className="logForm__inputs">
           <MyTextInput label="Email" id="email" name="email" type="text" />
