@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from "react-route
 
 
 import './App.scss';
+import '../styles/Global.scss'
 
 
 function MainLayout() {
