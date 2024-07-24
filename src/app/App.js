@@ -4,16 +4,16 @@ import HomePage from '../pages/HomePage';
 import ProfilePage from '../pages/ProfilePage';
 import LoginForm from '../components/auth/loginForm/LoginForm'
 import SignInForm from '../components/auth/signInForm/SignInForm'
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
 
 import './App.scss';
 import '../styles/Global.scss'
 
-
 function MainLayout() {
   const location = useLocation();
-  const hideSidebarAndFooter = ["/" , "/registration"].includes(location.pathname);
+  const hideSidebarAndFooter = ["/", "/registration"].includes(location.pathname);
+
 
   return (
     <div className="app">

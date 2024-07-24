@@ -15,7 +15,7 @@ export const SignInSchema = yup.object().shape({
     .string()
     .required('Password is required')
     .min(8, 'The name is too short'),
-  'confirm password': yup
+  'confirmPassword': yup
     .string()
     .required('Password is required')
     .oneOf([yup.ref('password'), null], 'Password mismatch'),

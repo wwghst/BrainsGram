@@ -1,37 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import './SignInForm.scss';
 import { useFormik } from 'formik';
 import { SignInSchema } from './constans/SignInSchema';
 import InputBlock from './components/InputBlock/InputBlock';
 import { Button } from '../../../shared';
-
+import { usePost } from '../../../hooks/usePost';
+import { useNavigate } from 'react-router-dom';
 
 const inputArray = [
   { type: 'text', name: 'name' },
   { type: 'email', name: 'email' },
   { type: 'password', name: 'password' },
-  { type: 'password', name: 'confirm password' },
+  { type: 'password', name: 'confirmPassword' },
 ];
 
 const SignInForm = () => {
-  const useForm = (form) => ({ ...useFormik(form)});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
+  const { request } = usePost();
+  const navigate = useNavigate();
 
-
-  const form = useForm({
+  const form = useFormik({
     initialValues: {
       name: '',
       email: '',
       password: '',
-      'confirm password': '',
+      confirmPassword: '',
     },
     validationSchema: SignInSchema,
-    onSubmit: (values) => onSubmit(values),
+    onSubmit: async (values) => {
+      await postData(values.email, values.password);
+    },
   });
 
-  const onSubmit = (values) => {
-    alert(JSON.stringify(values));
+  const postData = async (email, password) => {
+    try {
+      const payload = { email, password };
+      console.log('Sending payload:', payload);
+      const data = await request('http://localhost:8080/auth/register', 'POST', JSON.stringify(payload));
+      localStorage.setItem('token', data.token)
+      setIsLoggedIn(true)
+      setResponse(data);
+      setError(null);
+    } catch (e) {
+      setError(e.message);
+    }
   };
+
+  useEffect(() => {
+    if (response) {
+      console.log('Response received:', response);
+    }
+  }, [response]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/home');
+    }
+  }, [isLoggedIn, navigate]);
+
 
   return (
     <div className="wrapper">
@@ -41,35 +70,28 @@ const SignInForm = () => {
           <span className="signForm__tittle--font">Brainsgram</span>
         </div>
         <div className="signForm__links">
-        <NavLink 
-          to='/' 
-          className="signForm__link">
-            Login
-          </NavLink>
+          <NavLink to='/' className="signForm__link">Login</NavLink>
           <span className="signForm__stick">|</span>
-          <NavLink
-            to='/registration' 
-            className="signForm__link signForm__link--active">
-            Registration
-          </NavLink>
+          <NavLink to='/registration' className="signForm__link signForm__link--active">Registration</NavLink>
         </div>
-        <div className={'form_block'}>
+        <div className="form_block">
           <div className="signForm__inputs">
             {inputArray.map((input, index) => (
               <InputBlock
                 key={index}
                 {...input}
-                values={form.values[input.name]}
-                onChange={(e) => form.setFieldValue(`${input.name}`, e.target.value)}
+                value={form.values[input.name]}
+                onChange={(e) => form.setFieldValue(input.name, e.target.value)}
                 error={form.errors[input.name]}
               >
                 {input.name}
               </InputBlock>
             ))}
           </div>
-          <Button className={'signForm__btn'} type="submit">
+          <Button className='signForm__btn' type="submit">
             Submit
           </Button>
+          {error && <div className="error_message">{error}</div>}
         </div>
       </form>
     </div>

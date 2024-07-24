@@ -1,77 +1,93 @@
-import { Formik, Form, useField } from 'formik';
-import * as Yup from 'yup';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Button } from '../../../shared';
 import './LoginForm.scss';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import InputBlock from '../signInForm/components/InputBlock/InputBlock';
+import { Button } from '../../../shared';
+import { usePost } from '../../../hooks/usePost';
+import { useNavigate } from 'react-router-dom';
 
-const MyTextInput = ({ label, ...props }) => {
-  const [field, meta] = useField(props);
-  return (
-    <>
-      <label htmlFor={props.name} className="logForm__label">
-        {label}
-      </label>
-      <input {...props} {...field} />
-      {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
-    </>
-  );
-};
-
-const MyCheckbox = ({ children, ...props }) => {
-  const [field, meta] = useField({ ...props, type: 'checkbox' });
-  return (
-    <>
-      <label className="checkbox">
-        <input type="checkbox" {...props} {...field} className="checkbox__box" />
-        {children}
-      </label>
-
-      {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
-    </>
-  );
-};
+const inputArray = [
+  { type: 'text', name: 'email' },
+  { type: 'text', name: 'password' },
+];
 
 const LoginForm = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [response, setResponse] = useState(null);
+  const [error, setError] = useState(null);
+  const { request } = usePost();
+  const navigate = useNavigate();
+
+  const form = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email('Invalid email address').required('Email is required'),
+      password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
+    }),
+    onSubmit: async (values) => {
+      await postData(values.email, values.password);
+    },
+  });
+
+  const postData = async (email, password) => {
+    try {
+      const payload = { email, password };
+      const data = await request('http://localhost:8080/auth/login', 'POST', JSON.stringify(payload));
+      localStorage.setItem('token', data.token)
+      setIsLoggedIn(true)
+      setResponse(data);
+      setError(null);
+    } catch (e) {
+      setError(e.message);
+    }
+  };
+
+  useEffect(() => {
+    if (response) {
+      console.log('Response received:', response);
+    }
+  }, [response]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/home');
+    }
+  }, [isLoggedIn, navigate]);
+
   return (
-    <Formik
-      initialValues={{
-        email: '',
-        password: '',
-      }}
-      validationSchema={Yup.object({
-        email: Yup.string().email('Wrong mail').required('Email is required!'),
-        password: Yup.string().min(8, 'Minimum 8 characters to fill').required('Password is required!'),
-      })}
-      onSubmit={(values) => console.log(values)}
-    >
-      <Form className="logForm">
-        <div className="logForm__tittles">
-          <span className="logForm__tittle">Welcome to </span>
-          <span className="logForm__tittle--font">Brainsgram</span>
-        </div>
-        <div className="logForm__links">
-          <NavLink 
-          to='/' 
-          className="logForm__link logForm__link--active">
-            Login
-          </NavLink>
-          <span className="logForm__stick">|</span>
-          <NavLink
-            to='/registration' 
-            className="logForm__link">
-            Registration
-          </NavLink>
-        </div>
-        <div className="logForm__inputs">
-          <MyTextInput label="Email" id="email" name="email" type="text" />
-          <MyTextInput label="Password" id="password" name="password" type="text" />
-          <MyCheckbox name="remember">Remember me</MyCheckbox>
-        </div>
-        <Button style={{ width: 260 }} type="submit">
-          Submit
-        </Button>
-      </Form>
-    </Formik>
+    <form className="logForm" onSubmit={form.handleSubmit}>
+      <div className="logForm__tittles">
+        <span className="logForm__tittle">Welcome to </span>
+        <span className="logForm__tittle--font">Brainsgram</span>
+      </div>
+      <div className="logForm__links">
+        <NavLink to='/' className="logForm__link logForm__link--active">Login</NavLink>
+        <span className="logForm__stick">|</span>
+        <NavLink to='/registration' className="logForm__link">Registration</NavLink>
+      </div>
+      <div className="logForm__inputs">
+        {inputArray.map((input, index) => (
+          <InputBlock
+            key={index}
+            {...input}
+            value={form.values[input.name]}
+            onChange={(e) => form.setFieldValue(input.name, e.target.value)}
+            error={form.errors[input.name]}
+          >
+            {input.name}
+          </InputBlock>
+        ))}
+      </div>
+      <Button className='logForm__btn' type="submit">
+        Submit
+      </Button>
+      {error && <div className="error_message">{error}</div>}
+    </form>
   );
 };
 

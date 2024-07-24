@@ -54,31 +54,20 @@
         font-family: "Open Sans", sans-serif;
     }
 
+    &__block{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
     &__inputs{
+        width: 250px;
         display: flex;
         flex-direction: column;
         align-items: start;
         justify-content: start;
         gap: 15px;
         margin-top: 15px;
-    }
-    
-    input[type="text"] {
-        width: 250px;
-        height: 38px;
-        padding: 0.5rem;
-        background-color: #F0F0F0;
-        text-align: start;
-        border: 1px solid #F0F0F0;
-        border-radius: 50px;
-
-        &:hover{
-            border: 1px solid #7545FF;
-        }
-    }
-
-    input[type="checkbox"] {
-        cursor: pointer;
     }
     
 
@@ -90,20 +79,6 @@
     }
 }
 
-.checkbox{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    font-family: "Open Sans", sans-serif;
-    color: #000000;
-
-    &__box{
-        width: 50px;
-        height: 25px;
-        
-    }
-}
 
 .error{
     color: red;
