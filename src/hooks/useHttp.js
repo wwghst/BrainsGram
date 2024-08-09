@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-export const usePost = () => {
+export const useHttp = () => {
     const request = useCallback(async (url, method = 'POST', body, headers = {
         'Content-Type': 'application/json'
     }) => {

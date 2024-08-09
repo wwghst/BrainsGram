@@ -5,19 +5,19 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import InputBlock from '../signInForm/components/InputBlock/InputBlock';
 import { Button } from '../../../shared';
-import { usePost } from '../../../hooks/usePost';
+import { useHttp } from '../../../hooks/useHttp';
 import { useNavigate } from 'react-router-dom';
 
 const inputArray = [
   { type: 'text', name: 'email' },
-  { type: 'text', name: 'password' },
+  { type: 'password', name: 'password' },
 ];
 
 const LoginForm = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
-  const { request } = usePost();
+  const { request } = useHttp();
   const navigate = useNavigate();
 
   const form = useFormik({
@@ -70,6 +70,7 @@ const LoginForm = () => {
         <span className="logForm__stick">|</span>
         <NavLink to='/registration' className="logForm__link">Registration</NavLink>
       </div>
+      {error && <div className="error_message">{error}</div>}
       <div className="logForm__inputs">
         {inputArray.map((input, index) => (
           <InputBlock
@@ -86,7 +87,6 @@ const LoginForm = () => {
       <Button className='logForm__btn' type="submit">
         Submit
       </Button>
-      {error && <div className="error_message">{error}</div>}
     </form>
   );
 };

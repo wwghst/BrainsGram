@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 import { SignInSchema } from './constans/SignInSchema';
 import InputBlock from './components/InputBlock/InputBlock';
 import { Button } from '../../../shared';
-import { usePost } from '../../../hooks/usePost';
+import { useHttp } from '../../../hooks/useHttp';
 import { useNavigate } from 'react-router-dom';
 
 const inputArray = [
@@ -19,7 +19,7 @@ const SignInForm = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
-  const { request } = usePost();
+  const { request } = useHttp();
   const navigate = useNavigate();
 
   const form = useFormik({
@@ -31,13 +31,13 @@ const SignInForm = () => {
     },
     validationSchema: SignInSchema,
     onSubmit: async (values) => {
-      await postData(values.email, values.password);
+      await postData(values.email, values.password, values.name);
     },
   });
 
-  const postData = async (email, password) => {
+  const postData = async (email, password, name) => {
     try {
-      const payload = { email, password };
+      const payload = { email, password, name };
       console.log('Sending payload:', payload);
       const data = await request('http://localhost:8080/auth/register', 'POST', JSON.stringify(payload));
       localStorage.setItem('token', data.token)
@@ -74,6 +74,7 @@ const SignInForm = () => {
           <span className="signForm__stick">|</span>
           <NavLink to='/registration' className="signForm__link signForm__link--active">Registration</NavLink>
         </div>
+        {error && <div className="error_message">{error}</div>}
         <div className="form_block">
           <div className="signForm__inputs">
             {inputArray.map((input, index) => (
@@ -91,7 +92,6 @@ const SignInForm = () => {
           <Button className='signForm__btn' type="submit">
             Submit
           </Button>
-          {error && <div className="error_message">{error}</div>}
         </div>
       </form>
     </div>
